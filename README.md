@@ -21,7 +21,10 @@ C++/PyTorch Implementation of the Paper: "Overfit Neural Networks as a Compact S
 - Boost >= 1.48
 
 ## Building
-```
+```bash
+git clone https://github.com/microsoft/vcpkg
+.\vcpkg\bootstrap-vcpkg.bat
+.\vcpkg\vcpkg.exe install tbb eigen3 cgal boost
 mkdir build && cd build && cmake ..
 ```
 Build with your preferred compiler. This was built and tested in Visual Studio 2019 x64.
