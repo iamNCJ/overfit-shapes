@@ -3,9 +3,12 @@ cmake_minimum_required(VERSION 3.1)
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake
   CACHE STRING "Vcpkg toolchain file")
 
+set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/workspace" CACHE PATH "Install location to move all the files")
+
 project(SDFSampler)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 
 #Build fast winding numbers library
 find_package(TBB REQUIRED)
@@ -27,9 +30,6 @@ if (BUILD_PYTHON)
     add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/pybind11")
 endif()
 
-add_subdirectory(SDFSampler)
-
 option(BUILD_EXAMPLE "Build sampler example" ON)
-if (BUILD_EXAMPLE)
-    add_subdirectory(example)
-endif()
+
+add_subdirectory(SDFSampler)

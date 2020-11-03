@@ -3,3 +3,4 @@
 vcpkg/
 build/
 build_linux/
+workspace/
